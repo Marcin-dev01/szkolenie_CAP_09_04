@@ -95,22 +95,22 @@ ID,source_code,city_ID,measuredAt,temperatureC,feelsLikeC,tempMinC,tempMaxC,pres
 wa_tutorial-Voivodeships.csv
 ```csv
 ID,country_code,name,capital,population,createdAt,createdBy,modifiedAt,modifiedBy
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c01,PL,dolnośląskie,Wrocław,2868200
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c02,PL,kujawsko-pomorskie,Bydgoszcz / Toruń,1984500
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c03,PL,lubelskie,Lublin,1996400
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c04,PL,lubuskie,Gorzów Wielkopolski / Zielona Góra,969800
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c05,PL,łódzkie,Łódź,2345900
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c06,PL,małopolskie,Kraków,3429100
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c07,PL,mazowieckie,Warszawa,5508300
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c08,PL,opolskie,Opole,930300
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c09,PL,podkarpackie,Rzeszów,2063000
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0a,PL,podlaskie,Białystok,1132600
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0b,PL,pomorskie,Gdańsk,2359500
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0c,PL,śląskie,Katowice,4291400
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0d,PL,świętokrzyskie,Kielce,1158000
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0e,PL,warmińsko-mazurskie,Olsztyn,1349200
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0f,PL,wielkopolskie,Poznań,3480000
-018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,PL,zachodniopomorskie,Szczecin,1622800
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c01,PL,dolnośląskie,Wrocław,2868200,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c02,PL,kujawsko-pomorskie,Bydgoszcz / Toruń,1984500,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c03,PL,lubelskie,Lublin,1996400,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c04,PL,lubuskie,Gorzów Wielkopolski / Zielona Góra,969800,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c05,PL,łódzkie,Łódź,2345900,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c06,PL,małopolskie,Kraków,3429100,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c07,PL,mazowieckie,Warszawa,5508300,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c08,PL,opolskie,Opole,930300,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c09,PL,podkarpackie,Rzeszów,2063000,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0a,PL,podlaskie,Białystok,1132600,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0b,PL,pomorskie,Gdańsk,2359500,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0c,PL,śląskie,Katowice,4291400,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0d,PL,świętokrzyskie,Kielce,1158000,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0e,PL,warmińsko-mazurskie,Olsztyn,1349200,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0f,PL,wielkopolskie,Poznań,3480000,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,PL,zachodniopomorskie,Szczecin,1622800,2005-07-24T00:00:00.000Z,createdBy.1pku9@example.net,2003-11-01T00:00:00.000Z,modifiedBy.1pku9@example.com
 ```
 
 wa_tutorial-WeatherConditions.csv
