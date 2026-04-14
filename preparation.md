@@ -72,14 +72,16 @@ ID,voivodeship_ID,name,postalCode,population,createdAt,createdBy,modifiedAt,modi
 019c2dac-6a30-7e79-9b74-998877665544,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,Koszalin,75-001,106000,2026-02-05T10:24:00Z,seed,2026-02-05T10:25:00Z,seed
 019c2dac-6a31-7eff-88b6-685269f7ce08,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,Świnoujście,72-600,40000,2026-02-05T10:27:00Z,seed,2026-02-05T10:28:00Z,seed
 ```
+
 wa_tutorial-Sources
-```
+```csv
 code,text
 API,Imported from API
 MANUAL,Manual entry
 ```
+
 wa_tutorial-Temperatures.csv
-```
+```csv
 ID,source_code,city_ID,measuredAt,temperatureC,feelsLikeC,tempMinC,tempMaxC,pressureHPa,humidityPct,windSpeedMps,windDirectionDeg,visibility,condition_code,createdAt,createdBy,modifiedAt,modifiedBy
 229c2dac-7a00-7e65-9faf-21b46f0e7801,API,019c2dac-6a12-7f7b-8ad9-4c9d4b2b8f44,2026-02-10T06:00:00Z,5.15,3.02,4.34,5.88,1015,91,2.57,260,10000,G,2026-02-10T06:01:00Z,seed,2026-02-10T06:01:00Z,seed
 229c2dac-7a01-7e65-9faf-21b46f0e7802,MANUAL,019c2dac-6a00-7e65-9faf-21b46f0e78c5,2026-02-10T06:00:00Z,-1.20,-4.80,-2.00,0.30,1016,88,4.50,250,10000,N,2026-02-10T06:01:00Z,seed,2026-02-10T06:01:00Z,seed
@@ -89,8 +91,9 @@ ID,source_code,city_ID,measuredAt,temperatureC,feelsLikeC,tempMinC,tempMaxC,pres
 229c2dac-7a05-7e65-9faf-21b46f0e7806,API,019c2dac-6a00-7e65-9faf-21b46f0e78c5,2026-02-11T06:00:00Z,-0.80,-3.10,-1.20,0.40,1018,85,3.10,240,10000,N,2026-02-11T06:01:00Z,admin,2026-02-11T06:01:00Z,admin
 229c2dac-7a06-7e65-9faf-21b46f0e7807,MANUAL,019c2dac-6a0f-78a2-9f2d-2b8c1f02e2cb,2026-02-11T12:00:00Z,7.20,6.10,6.50,8.00,1008,55,4.20,280,10000,G,2026-02-11T12:01:00Z,seed,2026-02-11T12:01:00Z,seedc
 ```
+
 wa_tutorial-Voivodeships.csv
-```
+```csv
 ID,country_code,name,capital,population,createdAt,createdBy,modifiedAt,modifiedBy
 018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c01,PL,dolnośląskie,Wrocław,2868200
 018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c02,PL,kujawsko-pomorskie,Bydgoszcz / Toruń,1984500
@@ -109,8 +112,9 @@ ID,country_code,name,capital,population,createdAt,createdBy,modifiedAt,modifiedB
 018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0f,PL,wielkopolskie,Poznań,3480000
 018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,PL,zachodniopomorskie,Szczecin,1622800
 ```
+
 wa-WeatherConditions.csv
-```
+```csv
 code,criticality,displayText
 G,3,Good Weather
 N,2,Neutral Weather
