@@ -36,6 +36,11 @@ entity Temperatures : cuid, managed {
     windDirectionDeg : Integer;
     visibility       : Integer;
     description      : String;
+    temperatureC     : Decimal(5, 2);
+    feelsLikeC       : Decimal(5, 2);
+    tempMinC         : Decimal(5, 2);
+    tempMaxC         : Decimal(5, 2);
+    condition        : Association to WeatherConditions;
 }
 
 entity Sources {

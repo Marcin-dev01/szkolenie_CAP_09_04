@@ -1,0 +1,4 @@
+code,criticality,displayText
+G,3,Good Weather
+N,2,Neutral Weather
+B,1,Bad Weather
