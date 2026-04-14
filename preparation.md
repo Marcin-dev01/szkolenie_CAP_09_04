@@ -113,7 +113,7 @@ ID,country_code,name,capital,population,createdAt,createdBy,modifiedAt,modifiedB
 018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,PL,zachodniopomorskie,Szczecin,1622800
 ```
 
-wa-WeatherConditions.csv
+wa_tutorial-WeatherConditions.csv
 ```csv
 code,criticality,displayText
 G,3,Good Weather
