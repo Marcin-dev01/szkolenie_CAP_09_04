@@ -1,0 +1,118 @@
+entity Temperatures
+```js
+    entity Temperatures : cuid, managed {
+        city             : Association to Cities;
+        source           : Association to Sources;
+        measuredAt       : Timestamp not null;
+        pressureHPa      : Integer;
+        humidityPct      : Integer;
+        windSpeedMps     : Decimal(6, 2);
+        windDirectionDeg : Integer;
+        visibility       : Integer;
+        description      : String;
+        temperatureC     : Decimal(5, 2);
+        feelsLikeC       : Decimal(5, 2);
+        tempMinC         : Decimal(5, 2);
+        tempMaxC         : Decimal(5, 2);
+        condition        : Association to WeatherConditions;
+}
+```
+
+wa_tutorial-Cities.csv
+```csv
+ID,voivodeship_ID,name,postalCode,population,createdAt,createdBy,modifiedAt,modifiedBy
+019c2dac-6a00-7e65-9faf-21b46f0e78c5,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c01,Wrocław,50-001,674079,2026-02-05T08:00:00Z,seed,2026-02-05T08:01:00Z,seed
+019c2dac-6a01-7d7e-bdbe-98610a07ad44,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c01,Legnica,59-220,97800,2026-02-05T08:03:00Z,seed,2026-02-05T08:04:00Z,seed
+019c2dac-6a02-7a06-a1fb-7bdc4f41b48c,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c01,Wałbrzych,58-300,110000,2026-02-05T08:06:00Z,seed,2026-02-05T08:07:00Z,seed
+019c2dac-6a03-7b76-8c48-e8d433e042f4,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c02,Bydgoszcz,85-001,331000,2026-02-05T08:09:00Z,seed,2026-02-05T08:10:00Z,seed
+019c2dac-6a04-7486-a48b-bd9d7a2b9235,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c02,Toruń,87-100,198000,2026-02-05T08:12:00Z,seed,2026-02-05T08:13:00Z,seed
+019c2dac-6a05-7a30-a799-bdf5d34d9f32,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c02,Włocławek,87-800,105000,2026-02-05T08:15:00Z,seed,2026-02-05T08:16:00Z,seed
+019c2dac-6a06-79ab-ae63-4c5d359b8842,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c03,Lublin,20-001,337000,2026-02-05T08:18:00Z,seed,2026-02-05T08:19:00Z,seed
+019c2dac-6a07-7a6b-8f79-3fbf81b5db3b,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c03,Zamość,22-400,62000,2026-02-05T08:21:00Z,seed,2026-02-05T08:22:00Z,seed
+019c2dac-6a08-7a41-9d6b-876d8c4f3a12,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c03,Chełm,22-100,61000,2026-02-05T08:24:00Z,seed,2026-02-05T08:25:00Z,seed
+019c2dac-6a09-76d5-8a7b-5f3b62f4e4af,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c04,Zielona Góra,65-001,139000,2026-02-05T08:27:00Z,seed,2026-02-05T08:28:00Z,seed
+019c2dac-6a0a-7bfa-9cc8-1a3451f4b3d5,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c04,Gorzów Wielkopolski,66-400,122000,2026-02-05T08:30:00Z,seed,2026-02-05T08:31:00Z,seed
+019c2dac-6a0b-79a0-9b1d-9b2c73a7a45a,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c04,Nowa Sól,67-100,39000,2026-02-05T08:33:00Z,seed,2026-02-05T08:34:00Z,seed
+019c2dac-6a0c-7c7c-9b6b-0d0f37cf7b7a,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c05,Łódź,90-001,655000,2026-02-05T08:36:00Z,seed,2026-02-05T08:37:00Z,seed
+019c2dac-6a0d-7c14-8f1c-64f9a7b5c7e2,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c05,Piotrków Trybunalski,97-300,73000,2026-02-05T08:39:00Z,seed,2026-02-05T08:40:00Z,seed
+019c2dac-6a0e-7a93-b9df-8c3fdbb6f4ef,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c05,Pabianice,95-200,64000,2026-02-05T08:42:00Z,seed,2026-02-05T08:43:00Z,seed
+019c2dac-6a0f-78a2-9f2d-2b8c1f02e2cb,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c06,Kraków,30-001,807000,2026-02-05T08:45:00Z,seed,2026-02-05T08:46:00Z,seed
+019c2dac-6a10-7c6d-8b62-c9a2e616f771,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c06,Tarnów,33-100,102000,2026-02-05T08:48:00Z,seed,2026-02-05T08:49:00Z,seed
+019c2dac-6a11-7b7f-9d8f-6bc1f4b9b5ad,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c06,Nowy Sącz,33-300,82000,2026-02-05T08:51:00Z,seed,2026-02-05T08:52:00Z,seed
+019c2dac-6a12-7f7b-8ad9-4c9d4b2b8f44,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c07,Warszawa,00-001,1860000,2026-02-05T08:54:00Z,seed,2026-02-05T08:55:00Z,seed
+019c2dac-6a13-7f8a-8c4a-5b9d4e8b71c8,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c07,Radom,26-600,200000,2026-02-05T08:57:00Z,seed,2026-02-05T08:58:00Z,seed
+019c2dac-6a14-7c55-9c1b-2c8b0d1e3caa,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c07,Płock,09-400,119000,2026-02-05T09:00:00Z,seed,2026-02-05T09:01:00Z,seed
+019c2dac-6a15-7a64-a5e1-4c7f3b0a0ad7,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c07,Siedlce,08-110,77000,2026-02-05T09:03:00Z,seed,2026-02-05T09:04:00Z,seed
+019c2dac-6a16-76a2-bca0-35d7c9c1a21d,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c07,Ostrołęka,07-400,52000,2026-02-05T09:06:00Z,seed,2026-02-05T09:07:00Z,seed
+019c2dac-6a17-7e38-a36f-9b8f5c3d2c11,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c08,Opole,45-001,128000,2026-02-05T09:09:00Z,seed,2026-02-05T09:10:00Z,seed
+019c2dac-6a18-77d8-8c94-7f4f1f2e3b90,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c08,Kędzierzyn-Koźle,47-200,60000,2026-02-05T09:12:00Z,seed,2026-02-05T09:13:00Z,seed
+019c2dac-6a19-7b61-a8b7-0f2d3a4b5c6d,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c08,Nysa,48-300,43000,2026-02-05T09:15:00Z,seed,2026-02-05T09:16:00Z,seed
+019c2dac-6a1a-7bb6-9c71-1f2e3d4c5b6a,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c09,Rzeszów,35-001,198000,2026-02-05T09:18:00Z,seed,2026-02-05T09:19:00Z,seed
+019c2dac-6a1b-7a8e-8b92-2e3d4c5b6a79,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c09,Przemyśl,37-700,59000,2026-02-05T09:21:00Z,seed,2026-02-05T09:22:00Z,seed
+019c2dac-6a1c-7b9a-9a83-3d4c5b6a7988,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c09,Krosno,38-400,47000,2026-02-05T09:24:00Z,seed,2026-02-05T09:25:00Z,seed
+019c2dac-6a1d-7c06-9c72-4c5b6a798877,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0a,Białystok,15-001,294000,2026-02-05T09:27:00Z,seed,2026-02-05T09:28:00Z,seed
+019c2dac-6a1e-7ae4-8f65-5b6a79887766,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0a,Łomża,18-400,62000,2026-02-05T09:30:00Z,seed,2026-02-05T09:31:00Z,seed
+019c2dac-6a1f-7c51-9b64-6a7988776655,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0a,Suwałki,16-400,69000,2026-02-05T09:33:00Z,seed,2026-02-05T09:34:00Z,seed
+019c2dac-6a20-7b44-8a73-798877665544,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0b,Gdańsk,80-001,486000,2026-02-05T09:36:00Z,seed,2026-02-05T09:37:00Z,seed
+019c2dac-6a21-7b9d-9a71-887766554433,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0b,Gdynia,81-001,243000,2026-02-05T09:39:00Z,seed,2026-02-05T09:40:00Z,seed
+019c2dac-6a22-7a42-8c73-776655443322,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0b,Słupsk,76-200,90000,2026-02-05T09:42:00Z,seed,2026-02-05T09:43:00Z,seed
+019c2dac-6a23-7b65-9b7a-665544332211,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0c,Katowice,40-001,286000,2026-02-05T09:45:00Z,seed,2026-02-05T09:46:00Z,seed
+019c2dac-6a24-7bf0-8c6b-554433221100,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0c,Częstochowa,42-200,213000,2026-02-05T09:48:00Z,seed,2026-02-05T09:49:00Z,seed
+019c2dac-6a25-7940-a8f5-4433221100ff,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0c,Bielsko-Biała,43-300,168000,2026-02-05T09:51:00Z,seed,2026-02-05T09:52:00Z,seed
+019c2dac-6a26-7b1e-9b7c-33221100ffee,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0d,Kielce,25-001,190000,2026-02-05T09:54:00Z,seed,2026-02-05T09:55:00Z,seed
+019c2dac-6a27-7aab-a6fd-221100ffeedd,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0d,Ostrowiec Świętokrzyski,27-400,68000,2026-02-05T09:57:00Z,seed,2026-02-05T09:58:00Z,seed
+019c2dac-6a28-7b9c-9b6e-1100ffeeddcc,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0d,Sandomierz,27-600,24000,2026-02-05T10:00:00Z,seed,2026-02-05T10:01:00Z,seed
+019c2dac-6a29-78a8-8c7d-00ffeeddccbb,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0e,Olsztyn,10-001,171000,2026-02-05T10:03:00Z,seed,2026-02-05T10:04:00Z,seed
+019c2dac-6a2a-7b02-9b6a-ffeeddccbbaa,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0e,Elbląg,82-300,118000,2026-02-05T10:06:00Z,seed,2026-02-05T10:07:00Z,seed
+019c2dac-6a2b-7c33-8c7c-eeddccbbaa99,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0e,Ełk,19-300,63000,2026-02-05T10:09:00Z,seed,2026-02-05T10:10:00Z,seed
+019c2dac-6a2c-7c61-bb6f-ddccbbaa9988,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0f,Poznań,60-001,541000,2026-02-05T10:12:00Z,seed,2026-02-05T10:13:00Z,seed
+019c2dac-6a2d-7a24-9b6b-ccbbaa998877,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0f,Kalisz,62-800,97000,2026-02-05T10:15:00Z,seed,2026-02-05T10:16:00Z,seed
+019c2dac-6a2e-7b20-8b6e-bbaa99887766,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0f,Konin,62-500,72000,2026-02-05T10:18:00Z,seed,2026-02-05T10:19:00Z,seed
+019c2dac-6a2f-7d4b-9b61-aa9988776655,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,Szczecin,70-001,390000,2026-02-05T10:21:00Z,seed,2026-02-05T10:22:00Z,seed
+019c2dac-6a30-7e79-9b74-998877665544,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,Koszalin,75-001,106000,2026-02-05T10:24:00Z,seed,2026-02-05T10:25:00Z,seed
+019c2dac-6a31-7eff-88b6-685269f7ce08,018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,Świnoujście,72-600,40000,2026-02-05T10:27:00Z,seed,2026-02-05T10:28:00Z,seed
+```
+wa_tutorial-Sources
+```
+code,text
+API,Imported from API
+MANUAL,Manual entry
+```
+wa_tutorial-Temperatures.csv
+```
+ID,source_code,city_ID,measuredAt,temperatureC,feelsLikeC,tempMinC,tempMaxC,pressureHPa,humidityPct,windSpeedMps,windDirectionDeg,visibility,condition_code,createdAt,createdBy,modifiedAt,modifiedBy
+229c2dac-7a00-7e65-9faf-21b46f0e7801,API,019c2dac-6a12-7f7b-8ad9-4c9d4b2b8f44,2026-02-10T06:00:00Z,5.15,3.02,4.34,5.88,1015,91,2.57,260,10000,G,2026-02-10T06:01:00Z,seed,2026-02-10T06:01:00Z,seed
+229c2dac-7a01-7e65-9faf-21b46f0e7802,MANUAL,019c2dac-6a00-7e65-9faf-21b46f0e78c5,2026-02-10T06:00:00Z,-1.20,-4.80,-2.00,0.30,1016,88,4.50,250,10000,N,2026-02-10T06:01:00Z,seed,2026-02-10T06:01:00Z,seed
+229c2dac-7a02-7e65-9faf-21b46f0e7803,MANUAL,019c2dac-6a0f-78a2-9f2d-2b8c1f02e2cb,2026-02-10T12:00:00Z,3.70,2.10,3.00,4.40,1014,68,2.40,210,10000,G,2026-02-10T12:01:00Z,seed,2026-02-10T12:01:00Z,seed
+229c2dac-7a03-7e65-9faf-21b46f0e7804,MANUAL,019c2dac-6a20-7b44-8a73-798877665544,2026-02-10T18:00:00Z,6.80,5.40,6.00,7.50,1002,60,5.00,300,10000,G,2026-02-10T18:01:00Z,seed,2026-02-10T18:01:00Z,seed
+229c2dac-7a04-7e65-9faf-21b46f0e7805,API,019c2dac-6a12-7f7b-8ad9-4c9d4b2b8f44,2026-02-10T18:00:00Z,0.30,-2.00,-0.50,1.20,1009,92,5.80,260,8000,B,2026-02-10T18:01:00Z,seed,2026-02-10T18:01:00Z,seed
+229c2dac-7a05-7e65-9faf-21b46f0e7806,API,019c2dac-6a00-7e65-9faf-21b46f0e78c5,2026-02-11T06:00:00Z,-0.80,-3.10,-1.20,0.40,1018,85,3.10,240,10000,N,2026-02-11T06:01:00Z,admin,2026-02-11T06:01:00Z,admin
+229c2dac-7a06-7e65-9faf-21b46f0e7807,MANUAL,019c2dac-6a0f-78a2-9f2d-2b8c1f02e2cb,2026-02-11T12:00:00Z,7.20,6.10,6.50,8.00,1008,55,4.20,280,10000,G,2026-02-11T12:01:00Z,seed,2026-02-11T12:01:00Z,seedc
+```
+wa_tutorial-Voivodeships.csv
+```
+ID,country_code,name,capital,population,createdAt,createdBy,modifiedAt,modifiedBy
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c01,PL,dolnośląskie,Wrocław,2868200
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c02,PL,kujawsko-pomorskie,Bydgoszcz / Toruń,1984500
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c03,PL,lubelskie,Lublin,1996400
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c04,PL,lubuskie,Gorzów Wielkopolski / Zielona Góra,969800
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c05,PL,łódzkie,Łódź,2345900
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c06,PL,małopolskie,Kraków,3429100
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c07,PL,mazowieckie,Warszawa,5508300
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c08,PL,opolskie,Opole,930300
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c09,PL,podkarpackie,Rzeszów,2063000
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0a,PL,podlaskie,Białystok,1132600
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0b,PL,pomorskie,Gdańsk,2359500
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0c,PL,śląskie,Katowice,4291400
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0d,PL,świętokrzyskie,Kielce,1158000
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0e,PL,warmińsko-mazurskie,Olsztyn,1349200
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c0f,PL,wielkopolskie,Poznań,3480000
+018f2c41-1f2a-7b4d-8a91-9f1c2a3b4c10,PL,zachodniopomorskie,Szczecin,1622800
+```
+wa-WeatherConditions.csv
+```
+code,criticality,displayText
+G,3,Good Weather
+N,2,Neutral Weather
+B,1,Bad Weather
+```
