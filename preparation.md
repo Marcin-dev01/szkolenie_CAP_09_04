@@ -120,3 +120,15 @@ G,3,Good Weather
 N,2,Neutral Weather
 B,1,Bad Weather
 ```
+
+```
+            applications: {
+                "weatherapp-app": {
+                    title: "Weather App",
+                    description: "An SAP Fiori application.",
+                    additionalInformation: "SAPUI5.Component=weatherapp",
+                    applicationType: "URL",
+                    url: "./weather-app/webapp/",
+                }
+            }
+```
