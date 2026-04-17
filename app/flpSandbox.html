@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <!-- Copyright (c) 2015 SAP AG, All Rights Reserved -->
+
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
@@ -44,31 +45,25 @@
                 }
             },
             applications: {
-                "weatherapp-tile": {
-                    title: "App Title",
+                "weather-app": {
+                    title: "weather-app",
                     description: "An SAP Fiori application.",
                     additionalInformation: "SAPUI5.Component=weatherapp",
                     applicationType: "URL",
-                    url: "../"
+                    url: "./weather-app/webapp/",
                 }
             }
         };
     </script>
 
-    <script src="https://sapui5.hana.ondemand.com/1.146.0/test-resources/sap/ushell/bootstrap/sandbox.js" id="sap-ushell-bootstrap"></script>
+    <script src="https://sapui5.hana.ondemand.com/1.146.0/test-resources/sap/ushell/bootstrap/sandbox.js"
+        id="sap-ushell-bootstrap"></script>
     <!-- Bootstrap the UI5 core library. 'data-sap-ui-frameOptions="allow"'' is a NON-SECURE setting for test environments -->
-    <script id="sap-ui-bootstrap"
-        src="https://sapui5.hana.ondemand.com/1.146.0/resources/sap-ui-core.js"
-        data-sap-ui-libs=""
-        data-sap-ui-async="true"
-        data-sap-ui-preload="async"
-        data-sap-ui-theme="sap_horizon"
-        data-sap-ui-compatVersion="edge"
-        data-sap-ui-language="en"
-        data-sap-ui-resourceroots='{"weatherapp": "../"}'
-        data-sap-ui-frameOptions="allow"
-        data-sap-ui-flexibilityServices='[{"connector": "LocalStorageConnector"}]'>
-    </script>
+    <script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/1.146.0/resources/sap-ui-core.js"
+        data-sap-ui-libs="" data-sap-ui-async="true" data-sap-ui-preload="async" data-sap-ui-theme="sap_horizon"
+        data-sap-ui-compatVersion="edge" data-sap-ui-language="en" data-sap-ui-resourceroots='{"weatherapp": "../"}'
+        data-sap-ui-frameOptions="allow" data-sap-ui-flexibilityServices='[{"connector": "LocalStorageConnector"}]'>
+        </script>
     <script>
         sap.ui.getCore().attachInit(function () {
             sap.ushell.Container.createRenderer().placeAt("content");
