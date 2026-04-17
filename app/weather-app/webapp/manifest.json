@@ -92,6 +92,16 @@
           "pattern": "Voivodeships({key}):?query:",
           "name": "VoivodeshipsObjectPage",
           "target": "VoivodeshipsObjectPage"
+        },
+        {
+          "name": "Voivodeships_CitiesObjectPage",
+          "pattern": "Voivodeships({key})/Cities({CitiesKey}):?query:",
+          "target": "Voivodeships_CitiesObjectPage"
+        },
+        {
+          "name": "Voivodeships_Cities_TemperaturesObjectPage",
+          "pattern": "Voivodeships({key})/Cities({CitiesKey})/Temperatures({TemperaturesKey}):?query:",
+          "target": "Voivodeships_Cities_TemperaturesObjectPage"
         }
       ],
       "targets": {
@@ -116,7 +126,8 @@
                     "type": "ResponsiveTable"
                   }
                 }
-              }
+              },
+              "initialLoad": "Enabled"
             }
           }
         },
@@ -127,7 +138,42 @@
           "options": {
             "settings": {
               "editableHeaderContent": false,
-              "contextPath": "/Voivodeships"
+              "contextPath": "/Voivodeships",
+              "navigation": {
+                "Cities": {
+                  "detail": {
+                    "route": "Voivodeships_CitiesObjectPage"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Voivodeships_CitiesObjectPage": {
+          "type": "Component",
+          "id": "Voivodeships_CitiesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {
+                "Temperatures": {
+                  "detail": {
+                    "route": "Voivodeships_Cities_TemperaturesObjectPage"
+                  }
+                }
+              },
+              "contextPath": "/Voivodeships/Cities"
+            }
+          }
+        },
+        "Voivodeships_Cities_TemperaturesObjectPage": {
+          "type": "Component",
+          "id": "Voivodeships_Cities_TemperaturesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/Voivodeships/Cities/Temperatures"
             }
           }
         }
