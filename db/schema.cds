@@ -26,16 +26,21 @@ entity Cities : cuid, managed {
                        on Temperatures.city = $self;
 }
 
-entity Temperatures : cuid, managed {
-    city             : Association to Cities;
-    source           : Association to Sources;
-    measuredAt       : Timestamp not null;
-    pressureHPa      : Integer;
-    humidityPct      : Integer;
-    windSpeedMps     : Decimal(6, 2);
-    windDirectionDeg : Integer;
-    visibility       : Integer;
-    description      : String;
+    entity Temperatures : cuid, managed {
+        city             : Association to Cities;
+        source           : Association to Sources;
+        measuredAt       : Timestamp not null;
+        pressureHPa      : Integer;
+        humidityPct      : Integer;
+        windSpeedMps     : Decimal(6, 2);
+        windDirectionDeg : Integer;
+        visibility       : Integer;
+        description      : String;
+        temperatureC     : Decimal(5, 2);
+        feelsLikeC       : Decimal(5, 2);
+        tempMinC         : Decimal(5, 2);
+        tempMaxC         : Decimal(5, 2);
+        condition        : Association to WeatherConditions;
 }
 
 entity Sources {
