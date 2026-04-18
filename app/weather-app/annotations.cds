@@ -23,6 +23,16 @@ annotate service.Voivodeships with @(
                 Label : 'population',
                 Value : population,
             },
+            {
+                $Type : 'UI.DataFieldForAction',
+                Action : 'WeatherService.EntityContainer/getInfoUnboundAction',
+                Label : 'getInfoUnboundAction',
+            },
+            {
+                $Type : 'UI.DataFieldForAction',
+                Action : 'WeatherService.getInfoBoundAction',
+                Label : 'getInfoBoundAction',
+            },
         ],
     },
     UI.Facets : [
@@ -59,6 +69,16 @@ annotate service.Voivodeships with @(
             $Type : 'UI.DataField',
             Label : 'population',
             Value : population,
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'WeatherService.EntityContainer/getInfoUnboundAction',
+            Label : 'getInfoUnboundAction',
+        },
+        {
+            $Type : 'UI.DataFieldForAction',
+            Action : 'WeatherService.getInfoBoundAction',
+            Label : 'getInfoBoundAction',
         },
     ],
     UI.SelectionFields : [
