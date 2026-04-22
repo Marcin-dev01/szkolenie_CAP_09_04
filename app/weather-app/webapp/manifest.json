@@ -162,7 +162,8 @@
                   }
                 }
               },
-              "contextPath": "/Voivodeships/Cities"
+              "contextPath": "/Voivodeships/Cities",
+              "editableHeaderContent": false
             }
           }
         },
@@ -173,7 +174,8 @@
           "options": {
             "settings": {
               "navigation": {},
-              "contextPath": "/Voivodeships/Cities/Temperatures"
+              "contextPath": "/Voivodeships/Cities/Temperatures",
+              "editableHeaderContent": false
             }
           }
         }
