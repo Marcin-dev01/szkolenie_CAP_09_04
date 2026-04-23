@@ -8,9 +8,20 @@ service WeatherService {
             action getInfoBoundAction();
         };
 
-    action getInfoUnboundAction(counter : Integer);
+    action getInfoUnboundAction(counter: Integer);
 
     entity Cities       as projection on wa_tutorial.Cities;
-    entity Temperatures as projection on wa_tutorial.Temperatures;
+
+    entity Temperatures as projection on wa_tutorial.Temperatures
+    {
+        *,
+        virtual isButtonApiVisible : Boolean
+    }
+        actions {
+            @(Common.SideEffects: {TargetEntities: ['in']})
+            action getTemperatureFromApi() returns Temperatures;
+        };
+
+
     entity Sources      as projection on wa_tutorial.Sources;
 }
