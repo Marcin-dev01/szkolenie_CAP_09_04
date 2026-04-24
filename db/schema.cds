@@ -15,6 +15,7 @@ entity Voivodeships : cuid, managed {
     Cities     : Composition of many Cities //Association to many Cities
                      on Cities.voivodeship = $self;
     population : Integer64;
+    // virtual virtualField : Integer;
 }
 
 entity Cities : cuid, managed {

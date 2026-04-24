@@ -1,9 +1,48 @@
-const cds = require('@sap/cds')
+const cds = require('@sap/cds');
+const { SELECT } = require('@sap/cds/lib/ql/cds-ql');
 
 module.exports = class WeatherService extends cds.ApplicationService {
   init() {
 
-    const { Voivodeships } = cds.entities('WeatherService')
+    const { Voivodeships, Cities, Temperatures } = cds.entities('WeatherService')
+
+    this.on('getTemperatureFromApi', Temperatures.drafts, async (req) => {
+      let city = await SELECT.columns(['name']).from(Cities.drafts).where({ ID: req.params[1].ID });
+      const weather = await cds.connect.to('weather')
+      const cityName = city[0].name
+      const weatherPath = `?q=${cityName}&units=metric&lang=pl`
+      const response = await weather.send("GET", weatherPath)
+      const data = response;
+      const temperatureC = data.main?.temp;
+      const feelsLikeC = data.main?.feels_like;
+      const tempMinC = data.main?.temp_min;
+      const tempMaxC = data.main?.temp_max;
+      const pressureHPa = data.main?.pressure;
+      const humidityPct = data.main?.humidity;
+      const windSpeedMps = data.wind?.speed;
+      const windDirectionDeg = data.wind?.deg;
+      const visibility = data.visibility;
+      const description = data.weather?.[0]?.description;
+      const dt = data.dt;
+
+      const entityPayload = {
+        measuredAt: new Date(dt * 1000).toISOString(),
+        temperatureC,
+        feelsLikeC,
+        tempMinC,
+        tempMaxC,
+        pressureHPa,
+        humidityPct,
+        windSpeedMps,
+        windDirectionDeg,
+        visibility,
+        description
+      };
+
+      await UPDATE(Temperatures.drafts)
+        .set(entityPayload)
+        .where({ ID: req.params[2].ID });
+    })
 
     this.before('READ', Voivodeships, async (req) => {
       console.log('Before read')
@@ -32,8 +71,27 @@ module.exports = class WeatherService extends cds.ApplicationService {
       console.log('This is bound draft action')
     })
 
-     this.on('getInfoUnboundAction', async (req) => {
+    this.on('getInfoUnboundAction', async (req) => {
       console.log('This is unbound action')
+    })
+
+    this.after('READ', Voivodeships, async (voivodeships, req) => {
+      voivodeships[0].virtualField = 90;
+    })
+
+    this.after('READ', Temperatures.drafts, async (temperatures) => {
+      if (temperatures.length != 0) {
+        let source = await SELECT.columns(['source_code']).from(Temperatures.drafts)
+          .where({ ID: temperatures[0].ID })
+
+        let source_code = source[0].source_code;
+        if (source_code != null && source_code == "API") {
+          temperatures[0].isButtonApiVisible = true;
+        } else if (source_code != null && source_code == "MANUAL") {
+          temperatures[0].isButtonApiVisible = false;
+        }
+
+      }
     })
 
     return super.init()
