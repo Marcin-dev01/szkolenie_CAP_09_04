@@ -23,10 +23,10 @@ package.json
 ```js
       "cds": {
         "requires": {
-          "Weather": {
+          "weather": {
             "kind": "rest",
             "credentials": {
-              "destination": "Weather"
+              "destination": "weather"
             }
           }
         }
