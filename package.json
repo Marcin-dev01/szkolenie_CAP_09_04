@@ -6,7 +6,9 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2",
-    "cds-plugin-ui5": "^0.13.0"
+    "cds-plugin-ui5": "^0.13.0",
+    "@sap-cloud-sdk/connectivity": "^4.5.1",
+    "@sap-cloud-sdk/http-client": "^4.5.1"
   },
   "scripts": {
     "start": "cds-serve",
@@ -18,5 +20,15 @@
   ],
   "sapux": [
     "app/weather-app"
-  ]
+  ],
+  "cds": {
+    "requires": {
+      "weather": {
+        "kind": "rest",
+        "credentials": {
+          "destination": "weather"
+        }
+      }
+    }
+  }
 }

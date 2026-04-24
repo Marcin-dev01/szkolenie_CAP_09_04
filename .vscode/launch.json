@@ -21,6 +21,22 @@
         "NODE_ENV": "development",
         "run.config": "{\"handlerId\":\"cap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/weather\\\",\\\"profileName\\\":\\\"development\\\"}\"}"
       }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug in hybrid mode",
+      "runtimeExecutable": "cds",
+      "args": [
+        "watch",
+        "--profile",
+        "hybrid"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "<node_internals>/**"
+      ]
     }
   ]
 }
