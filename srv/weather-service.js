@@ -1,10 +1,12 @@
+const { conditionsCode, Voivodeship } = require('#cds-models/wa_tutorial');
+const { Temperatures } = require('#cds-models/WeatherService');
 const cds = require('@sap/cds');
 const { SELECT } = require('@sap/cds/lib/ql/cds-ql');
 
 module.exports = class WeatherService extends cds.ApplicationService {
   init() {
 
-    const { Voivodeships, Cities, Temperatures } = cds.entities('WeatherService')
+    const { Voivodeships, Cities } = cds.entities('WeatherService')
 
     this.on('getTemperatureFromApi', Temperatures.drafts, async (req) => {
       let city = await SELECT.columns(['name']).from(Cities.drafts).where({ ID: req.params[1].ID });
@@ -25,6 +27,17 @@ module.exports = class WeatherService extends cds.ApplicationService {
       const description = data.weather?.[0]?.description;
       const dt = data.dt;
 
+      let condition_code;
+      if (temperatureC > 10) {
+        condition_code = conditionsCode.Good;
+      }
+      else if (temperatureC > 5) {
+        condition_code = conditionsCode.Neutral;
+      }
+      else {
+        condition_code = conditionsCode.Bad;
+      }
+
       const entityPayload = {
         measuredAt: new Date(dt * 1000).toISOString(),
         temperatureC,
@@ -36,7 +49,8 @@ module.exports = class WeatherService extends cds.ApplicationService {
         windSpeedMps,
         windDirectionDeg,
         visibility,
-        description
+        description,
+        condition_code
       };
 
       await UPDATE(Temperatures.drafts)
@@ -77,6 +91,12 @@ module.exports = class WeatherService extends cds.ApplicationService {
 
     this.after('READ', Voivodeships, async (voivodeships, req) => {
       voivodeships[0].virtualField = 90;
+    })
+
+    this.on('READ', Voivodeships, async (req, next) => {
+      const user = req.user;
+      console.log(user.is('viewer'))
+      return next()
     })
 
     this.after('READ', Temperatures.drafts, async (temperatures) => {

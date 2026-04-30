@@ -6,17 +6,17 @@ annotate service.Voivodeships with @(
         Data : [
             {
                 $Type: 'UI.DataField',
-                Label: 'country_code',
+                Label: '{i18n>Countrycode}',
                 Value: country_code,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'name',
+                Label: '{i18n>Name1}',
                 Value: name,
             },
             {
                 $Type: 'UI.DataField',
-                Label: 'capital',
+                Label: '{i18n>Capital}',
                 Value: capital,
             },
             {
@@ -53,6 +53,12 @@ annotate service.Voivodeships with @(
             Label : 'Cities Information',
             ID    : 'CitiesInformation',
             Target: 'Cities/@UI.LineItem#CitiesInformation',
+        },
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : '{i18n>Attachments}',
+            ID : 'i18nAttachments',
+            Target : '@UI.FieldGroup#i18nAttachments',
         },
     ],
     UI.LineItem                  : [
@@ -95,6 +101,16 @@ annotate service.Voivodeships with @(
         },
         TypeName      : '',
         TypeNamePlural: '',
+    },
+    UI.FieldGroup #i18nAttachments : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : content,
+                Label : '{i18n>Content}',
+            },
+        ],
     },
 );
 
@@ -235,6 +251,12 @@ annotate service.Temperatures with @(
                 Value: city.name,
                 Label: 'name',
             },
+            {
+                $Type : 'UI.DataField',
+                Value : condition_code,
+                Label : 'condition_code',
+                Criticality : condition.criticality,
+            },
         ],
     },
     UI.FieldGroup #Measurement: {
@@ -342,3 +364,10 @@ annotate service.Temperatures with @(Common: {SideEffects #changeIsButtonVisible
     SourceProperties: ['source_code'],
     TargetProperties: ['isButtonApiVisible']
 }});
+annotate service.Temperatures with {
+    condition @(
+        Common.Text : condition.displayText,
+        Common.Text.@UI.TextArrangement : #TextOnly,
+    )
+};
+

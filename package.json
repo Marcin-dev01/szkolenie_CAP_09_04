@@ -2,17 +2,21 @@
   "name": "weather",
   "version": "1.0.0",
   "dependencies": {
+    "@cap-js/attachments": "^3.12.1",
     "@sap/cds": "^9"
   },
   "devDependencies": {
+    "@cap-js/cds-typer": ">=0.1",
     "@cap-js/sqlite": "^2",
-    "cds-plugin-ui5": "^0.13.0",
     "@sap-cloud-sdk/connectivity": "^4.5.1",
-    "@sap-cloud-sdk/http-client": "^4.5.1"
+    "@sap-cloud-sdk/http-client": "^4.5.1",
+    "cds-plugin-ui5": "^0.13.0"
   },
   "scripts": {
     "start": "cds-serve",
-    "watch-weather-app": "cds watch --open weatherapp/index.html?sap-ui-xx-viewCache=false --livereload false"
+    "watch-weather-app": "cds watch --open weatherapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch:memory": "cds watch --profile memory",
+    "sqlite": "cds watch --profile sqlite"
   },
   "private": true,
   "workspaces": [
@@ -28,7 +32,50 @@
         "credentials": {
           "destination": "weather"
         }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "alice": {
+            "roles": [
+              "admin",
+              "viewer",
+              "editor",
+              "super_editor"
+            ]
+          },
+          "bob": {
+            "roles": [
+              "editor",
+              "viewer"
+            ]
+          },
+          "frank": {
+            "roles": [
+              "viewer"
+            ]
+          }
+        }
+      },
+      "[memory]": {
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": ":memory:"
+          }
+        }
+      },
+      "[sqlite]": {
+        "db": {
+          "kind": "sqlite",
+          "credentials": {
+            "url": "db.sqlite"
+          }
+        }
       }
     }
+  },
+  "imports": {
+    "#cds-models/*": "./@cds-models/*/index.js"
   }
 }
